@@ -5,7 +5,7 @@ on:
     branches: ["main"]
 
 env:
-  AZURE_FUNCTIONAPP_NAME: 'logicappscicddemo'   # set this to your function app name on Azure
+  LOGIC_APP_NAME: 'logicappscicddemo'
   PACKAGE_NAME: '${{ github.workspace }}/package.zip'
  
 jobs:
@@ -20,8 +20,7 @@ jobs:
       uses: ihiroky/archive-action@v1
       with:
         root_dir: './LogicApps'
-        file_path: ${{ env.PACKAGE_NAME }}
-          
+        file_path: ${{ env.PACKAGE_NAME }}         
     
     - name: 'Login via Azure CLI'
       uses: azure/login@v1
@@ -32,5 +31,5 @@ jobs:
       uses: Azure/functions-action@v1
       id: fa
       with:
-        app-name: 'logicappscicddemo'
+        app-name: ${{ env.LOGIC_APP_NAME }}
         package: ${{ env.PACKAGE_NAME }}
