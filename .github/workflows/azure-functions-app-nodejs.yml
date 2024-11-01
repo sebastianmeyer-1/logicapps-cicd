@@ -19,7 +19,7 @@ jobs:
     - name: Create Workflow Archive
       uses: ihiroky/archive-action@v1
       with:
-        root-dir: './LogicApps'
+        root_dir: './LogicApps'
         file_path: ${{ env.PACKAGE_NAME }}
           
     
