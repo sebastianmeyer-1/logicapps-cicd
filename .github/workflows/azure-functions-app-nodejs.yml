@@ -19,7 +19,7 @@ jobs:
       uses: ksm2/archive-action@v1
       with:
         root-directory: './LogicApps'
-        name: './LogicApps/package.zip'
+        name: package.zip
           
     
     - name: 'Login via Azure CLI'
@@ -32,4 +32,4 @@ jobs:
       id: fa
       with:
         app-name: 'logicappscicddemo'
-        package: './LogicApps/package.zip'
+        package: '${{ github.workspace }}/package.zip'
