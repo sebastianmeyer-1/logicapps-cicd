@@ -1,0 +1,11 @@
+{
+  "folders": [
+    {
+      "name": "LogicApps",
+      "path": "./LogicApps"
+    }
+  ],
+  "settings": {
+    "azurite.location": "C:\\Users\\sebas\\.azurelogicapps\\.azurite"
+  }
+}
