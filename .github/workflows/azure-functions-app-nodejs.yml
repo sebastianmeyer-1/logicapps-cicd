@@ -1,0 +1,36 @@
+name: Deploy Workflows to Azure Logic App
+
+on:
+  push:
+    branches: ["main"]
+
+env:
+  AZURE_FUNCTIONAPP_NAME: 'logicappscicddemo'   # set this to your function app name on Azure
+ 
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest # For Linux, use ubuntu-latest
+    environment: dev
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@v4
+
+    - name: Create Workflow Archive
+      uses: ksm2/archive-action@v1
+      with:
+        root-directory: './LogicApps'
+        # Name for the archive
+        name: 'package.zip'
+          
+    
+    - name: 'Login via Azure CLI'
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: 'Run Azure Logic Apps Action'
+      uses: Azure/functions-action@v1
+      id: fa
+      with:
+        app-name: 'logicappscicddemo'
+        package: 'package.zip'
