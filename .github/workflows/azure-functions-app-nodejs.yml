@@ -9,7 +9,7 @@ env:
  
 jobs:
   build-and-deploy:
-    runs-on: windows-latest # For Linux, use ubuntu-latest
+    runs-on: ubuntu-latest
     environment: dev
     steps:
     - name: 'Checkout GitHub Action'
@@ -19,7 +19,6 @@ jobs:
       uses: ksm2/archive-action@v1
       with:
         root-directory: './LogicApps'
-        # Name for the archive
         name: 'package.zip'
           
     
@@ -33,4 +32,4 @@ jobs:
       id: fa
       with:
         app-name: 'logicappscicddemo'
-        package: 'package.zip'
+        package: './LogicApps/package.zip'
