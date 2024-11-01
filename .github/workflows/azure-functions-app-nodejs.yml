@@ -6,6 +6,7 @@ on:
 
 env:
   AZURE_FUNCTIONAPP_NAME: 'logicappscicddemo'   # set this to your function app name on Azure
+  PACKAGE_NAME: '${{ github.workspace }}/package.zip'
  
 jobs:
   build-and-deploy:
@@ -19,7 +20,7 @@ jobs:
       uses: ksm2/archive-action@v1
       with:
         root-directory: './LogicApps'
-        name: package.zip
+        name: ${{ env.PACKAGE_NAME }}
           
     
     - name: 'Login via Azure CLI'
@@ -32,4 +33,4 @@ jobs:
       id: fa
       with:
         app-name: 'logicappscicddemo'
-        package: '${{ github.workspace }}/package.zip'
+        package: ${{ env.PACKAGE_NAME }}
