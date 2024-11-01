@@ -11,7 +11,7 @@ Den Output für den nächsten Schritt kopieren und als Secret Content unter 2. e
 
 > GitHub Repository > Settings > Secrets and variables > Actions > New Repository secret
 
-SecretName = __AZURE_CRENDTIALS__
+SecretName = __AZURE_CREDENTIALS__
 ```json
 {
   "clientId": "<YOUR-CLIENT-ID>",
