@@ -1,5 +1,5 @@
 # GitHub Secret Content
-'''json
+```json
 {
   "clientId": "<YOUR-CLIENT-ID>",
   "clientSecret": "<YOUR-CLIENT-SECRET>",
@@ -12,4 +12,4 @@
   "galleryEndpointUrl": "https://gallery.azure.com/",
   "managementEndpointUrl": "https://management.core.windows.net/"
 }
-'''
+```
